@@ -1,9 +1,9 @@
-# GameDev
+# Gaming Development
 We plan to make high quality and engaging games
 
 # Team Members and Roles
 * Edgar - Animator and Graphics
-* Elliot - Scripts and Coder
+* Elliott - Scripts and Coder
 * Emil - Coder and Manager
 * Cole - Sound and Scripts
 
