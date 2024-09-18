@@ -1,4 +1,5 @@
 # GameDev
+We plan to make high quality and engaging games
 
 # Team Members and Roles
 * Edgar - Animator and Graphics
