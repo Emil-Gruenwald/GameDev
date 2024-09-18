@@ -3,7 +3,7 @@
 # Team Members and Roles
 * Edgar - Animator and Graphics
 * Elliot - Scripts and Coder
-* Emil - Coder and Graphics
+* Emil - Coder and Manager
 * Cole - Sound and Scripts
 
 # Overview of Game #1
