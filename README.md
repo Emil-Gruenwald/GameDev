@@ -12,3 +12,4 @@ We plan to make high quality and engaging games
 # Overview of Game #2
 
 # Images of Mockups
+![Blizzard UML](https://github.com/Emil-Gruenwald/GameDev/blob/main/images/uml.png?raw=true)
