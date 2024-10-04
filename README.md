@@ -9,6 +9,7 @@ We plan to make high quality and engaging games
 
 # Overview of Game #1
 ## Start Screen:
+![StartScreen](https://github.com/Emil-Gruenwald/GameDev/blob/main/images/gameplayscreen.png?raw=true)
 
 ## End Screen:
 
