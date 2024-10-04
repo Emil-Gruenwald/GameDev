@@ -8,6 +8,12 @@ We plan to make high quality and engaging games
 * Cole - Sound and Scripts
 
 # Overview of Game #1
+## Start Screen:
+
+## End Screen:
+
+## Gameplay Concept:
+![Gameplay](https://github.com/Emil-Gruenwald/GameDev/blob/main/images/gameplayscreen.png?raw=true)
 
 # Overview of Game #2
 
