@@ -9,14 +9,15 @@ We plan to make high quality and engaging games
 
 # Overview of Game #1
 ## Start Screen:
-![StartScreen](https://github.com/Emil-Gruenwald/GameDev/blob/main/images/gameplayscreen.png?raw=true)
+![StartScreen](https://github.com/Emil-Gruenwald/GameDev/blob/main/images/StartScreenColeN.png?raw=true)
 
 ## End Screen:
+![EndScreen](https://github.com/Emil-Gruenwald/GameDev/blob/main/images/GameOverElliottM.png?raw=true)
 
-## Gameplay Concept (Edgar Williams):
-![Gameplay](https://github.com/Emil-Gruenwald/GameDev/blob/main/images/gameplayscreen.png?raw=true)
+## Gameplay Concept:
+![Gameplay](https://github.com/Emil-Gruenwald/GameDev/blob/main/images/GameplayScreenEdgarW.png?raw=true)
 
 # Overview of Game #2
 
 # Images of Mockups
-![Blizzard UML](https://github.com/Emil-Gruenwald/GameDev/blob/main/images/uml.png?raw=true)
+![Blizzard UML](https://github.com/Emil-Gruenwald/GameDev/blob/main/images/UmlEmilG.png?raw=true)
