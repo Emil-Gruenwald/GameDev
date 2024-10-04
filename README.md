@@ -12,7 +12,7 @@ We plan to make high quality and engaging games
 
 ## End Screen:
 
-## Gameplay Concept:
+## Gameplay Concept (Edgar Williams):
 ![Gameplay](https://github.com/Emil-Gruenwald/GameDev/blob/main/images/gameplayscreen.png?raw=true)
 
 # Overview of Game #2
