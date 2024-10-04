@@ -8,7 +8,7 @@ We plan to make high quality and engaging games
 * Cole - Sound and Scripts
 
 # Overview of Game #1
-![][https://github.com/Emil-Gruenwald/GameDev/blob/main/images/uml.png?raw=true]
+![text][https://github.com/Emil-Gruenwald/GameDev/blob/main/images/uml.png?raw=true]
 
 # Overview of Game #2
 
