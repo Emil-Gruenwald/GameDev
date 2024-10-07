@@ -12,7 +12,7 @@ We plan to make high quality and engaging games
 ![StartScreen](https://github.com/Emil-Gruenwald/GameDev/blob/main/images/StartScreenColeN.png?raw=true)
 
 ## End Screen:
-![EndScreen](https://github.com/Emil-Gruenwald/GameDev/blob/main/images/GameOverElliottM.png?raw=true)
+![EndScreen](https://github.com/Emil-Gruenwald/GameDev/blob/main/images/GameOverFinalElliottM.png?raw=true)
 
 ## Gameplay Concept:
 ![Gameplay](https://github.com/Emil-Gruenwald/GameDev/blob/main/images/GameplayScreenEdgarWilliams.png?raw=true)
