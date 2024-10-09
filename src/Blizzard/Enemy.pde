@@ -1,13 +1,11 @@
 // Emil Gruenwald
 
 class Enemy {
- // Member Variables
-
+  // Member Variables
   PImage sprite;
   int health, damage, speed, x, y;
 
-// Constructor
-
+  // Constructor
   Enemy () {
    x = 0;
    y = 0;

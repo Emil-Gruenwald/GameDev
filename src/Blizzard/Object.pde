@@ -1,12 +1,12 @@
 // Emil Gruenwald
 
 class Object {
-  //Member Variables
+  // Member Variables
   int heal, damage, coldProtection;
   PImage sprite;
   char type;
 
-  //Constructor
+  // Constructor
   Object () {
     heal = 20;
     damage = 5;
@@ -14,9 +14,8 @@ class Object {
     sprite = loadImage("");
   }
 
-//Member Methods
-  void display () {
-   
-  }
+  // Member Methods
+  void display () {}
+  
   void use (PartyMember p) {}
 }

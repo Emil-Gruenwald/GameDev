@@ -11,6 +11,6 @@ class Storm {
     intensity = 0;
   }
 
-// Member Methods
+  // Member Methods
   void encounter () {}
 }
