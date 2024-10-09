@@ -16,7 +16,7 @@ class Player {
     x = 0;
     y = 0;
     name = n;
-    sprite = loadImage("");
+    sprite = loadImage("Playerguy.png");
   }
 
   // Member Methods
