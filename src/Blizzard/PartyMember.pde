@@ -18,7 +18,7 @@ class PartyMember {
     sprite = loadImage("");
   }
   
-  // Member Functions
+  // Member Methods
   void display () {}
   
   void move () {}
