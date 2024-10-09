@@ -7,6 +7,7 @@ PartyMember[] party = new PartyMember[5];
 Player player;
 
 void setup() {
+  fullScreen();
 }
 
 void draw() {
