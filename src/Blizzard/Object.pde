@@ -3,15 +3,15 @@
 class Object {
   //Member Variables
   int heal, damage, coldProtection;
-  PImage item1;
+  PImage sprite;
   char type;
 
   //Constructor
   Object () {
-    heal = 20
-    damage = 5
-    coldProtection = 10
-    item1 = loadImage("");
+    heal = 20;
+    damage = 5;
+    coldProtection = 10;
+    sprite = loadImage("");
   }
 
 //Member Methods
