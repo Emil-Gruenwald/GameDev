@@ -17,6 +17,7 @@ class Enemy {
 
   // Member Methods
   void display() {
+    image(sprite, 0, 0);
   }
 
   void move() {

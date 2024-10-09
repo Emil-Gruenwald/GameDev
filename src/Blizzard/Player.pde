@@ -21,6 +21,7 @@ class Player {
 
   // Member Methods
   void display () {
+    image(sprite, 0, 0);
   }
 
   void move () {

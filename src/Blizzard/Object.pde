@@ -16,7 +16,6 @@ class Object {
 
   // Member Methods
   void display () {
-    imageMode (CENTER);
     image(sprite,width/2,height/2);
   }
 
