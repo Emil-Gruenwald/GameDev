@@ -12,7 +12,7 @@ class Boss {
     damage = 10;
     speed = 10;
     fear = 's';
-    sprite = loadImage("");
+    sprite = loadImage("Boss.png");
   }
 
   // Member Methods
