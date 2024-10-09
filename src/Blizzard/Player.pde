@@ -9,4 +9,10 @@ class Player {
   Player () {
     
   }
+  
+  void display () {}
+  
+  void move () {}
+  
+  void attack () {}
 }

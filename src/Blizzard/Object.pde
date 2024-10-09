@@ -8,4 +8,6 @@ class Object {
   Object () {
     
   }
+  
+  void use (PartyMember p) {}
 }

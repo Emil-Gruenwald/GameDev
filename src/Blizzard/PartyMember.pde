@@ -8,4 +8,10 @@ class PartyMember {
   PartyMember () {
     
   }
+  
+  void display () {}
+  
+  void move () {}
+  
+  void attack () {}
 }

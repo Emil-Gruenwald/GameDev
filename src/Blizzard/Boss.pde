@@ -8,4 +8,8 @@ class Boss {
   Boss () {
     
   }
+  
+  void display() {}
+  
+  void attack() {}
 }

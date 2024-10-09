@@ -7,4 +7,10 @@ class Enemy {
   Enemy () {
     
   }
+  
+  void display() {}
+  
+  void move() {}
+  
+  void attack() {}
 } 

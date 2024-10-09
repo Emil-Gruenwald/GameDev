@@ -6,4 +6,6 @@ class Storm {
   Storm() {
     
   }
+  
+  void encounter () {}
 }
