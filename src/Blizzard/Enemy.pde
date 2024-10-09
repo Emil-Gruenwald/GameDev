@@ -12,7 +12,7 @@ class Enemy {
     health = 0;
     damage = 0;
     speed = 0;
-    sprite = loadImage("");
+    sprite = loadImage("enemy1.png");
   }
 
   // Member Methods
