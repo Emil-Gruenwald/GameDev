@@ -2,20 +2,22 @@
 
 class Object {
   // Member Variables
-  int heal, damage, coldProtection;
+  int x ,y ,heal, damage, coldProtection;
   PImage sprite;
   char type;
 
   // Constructor
   Object () {
-    heal = 20;
+    heal = 10;
     damage = 5;
-    coldProtection = 10;
-    sprite = loadImage("");
+    coldProtection = 20;
+    sprite = loadImage("Torch.png");
   }
 
   // Member Methods
   void display () {
+    imageMode (CENTER);
+    image(sprite,width/2,height/2);
   }
 
   void use (PartyMember p) {
