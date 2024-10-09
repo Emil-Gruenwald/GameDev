@@ -4,7 +4,7 @@ class Storm {
   // Member variables
   int progressX, intensity;
   // PImage storm;
-  
+
   // Constructor
   Storm() {
     progressX = 0;
@@ -12,5 +12,6 @@ class Storm {
   }
 
   // Member Methods
-  void encounter () {}
+  void encounter () {
+  }
 }

@@ -6,7 +6,7 @@ class Player {
   int health, damage, speed, cold, x, y;
   String name;
   ArrayList<Object> inventory = new ArrayList<Object>();
-  
+
   // Constructor
   Player (String n) {
     health = 10;
@@ -18,11 +18,14 @@ class Player {
     name = n;
     sprite = loadImage("");
   }
-  
+
   // Member Methods
-  void display () {}
-  
-  void move () {}
-  
-  void attack () {}
+  void display () {
+  }
+
+  void move () {
+  }
+
+  void attack () {
+  }
 }

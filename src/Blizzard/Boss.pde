@@ -5,7 +5,7 @@ class Boss {
   PImage sprite;
   int health, damage, speed;
   char fear;
-  
+
   // Constructor
   Boss () {
     health = 10;
@@ -14,9 +14,11 @@ class Boss {
     fear = 's';
     sprite = loadImage("");
   }
-  
+
   // Member Methods
-  void display() {}
-  
-  void attack() {}
+  void display() {
+  }
+
+  void attack() {
+  }
 }

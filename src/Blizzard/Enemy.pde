@@ -7,20 +7,21 @@ class Enemy {
 
   // Constructor
   Enemy () {
-   x = 0;
-   y = 0;
-   health = 0;
-   damage = 0;
-   speed = 0;
-   sprite = loadImage("");
-    
+    x = 0;
+    y = 0;
+    health = 0;
+    damage = 0;
+    speed = 0;
+    sprite = loadImage("");
   }
 
-// Member Methods
+  // Member Methods
+  void display() {
+  }
 
-  void display() {}
-  
-  void move() {}
-  
-  void attack() {}
-} 
+  void move() {
+  }
+
+  void attack() {
+  }
+}

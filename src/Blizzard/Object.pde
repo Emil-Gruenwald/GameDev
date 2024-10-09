@@ -15,7 +15,9 @@ class Object {
   }
 
   // Member Methods
-  void display () {}
-  
-  void use (PartyMember p) {}
+  void display () {
+  }
+
+  void use (PartyMember p) {
+  }
 }

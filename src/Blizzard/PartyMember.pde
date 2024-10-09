@@ -5,7 +5,7 @@ class PartyMember {
   PImage sprite;
   int health, damage, speed, cold, x, y;
   String name;
-  
+
   // Constructor
   PartyMember (String n) {
     x = 0;
@@ -17,11 +17,14 @@ class PartyMember {
     name = n;
     sprite = loadImage("");
   }
-  
+
   // Member Methods
-  void display () {}
-  
-  void move () {}
-  
-  void attack () {}
+  void display () {
+  }
+
+  void move () {
+  }
+
+  void attack () {
+  }
 }

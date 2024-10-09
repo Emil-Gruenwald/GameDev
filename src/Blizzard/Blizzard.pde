@@ -7,17 +7,13 @@ PartyMember[] party = new PartyMember[5];
 Player player;
 
 void setup() {
-  
 }
 
 void draw() {
-  
 }
 
 void keyPressed() {
-
 }
 
 void mousePressed() {
-
 }
