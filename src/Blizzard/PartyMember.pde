@@ -15,7 +15,7 @@ class PartyMember {
     health = 10;
     damage = 10;
     name = n;
-    sprite = loadImage("");
+    sprite = loadImage("axeguy.png");
   }
 
   // Member Methods
