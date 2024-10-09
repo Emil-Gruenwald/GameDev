@@ -6,6 +6,7 @@ We plan to make high quality and engaging games
 * Elliott - Scripts and Coder
 * Emil - Coder and Manager
 * Cole - Sound and Scripts
+* Winston - Tester
 
 # Overview of Game #1
 ## Start Screen:
