@@ -6,17 +6,21 @@ Boss boss;
 // PartyMember[] party = new PartyMember[5];
 Player player;
 PartyMember party;
+Enemy enemy;
 
 void setup() {
   fullScreen();
   boss = new Boss();
   player = new Player("Joe");
+  enemy = new Enemy();
+  party = new PartyMember("Bob");
 }
 
 void draw() {
   boss.display();
   player.display();
-  
+  enemy.display();
+  party.display();
 }
 
 void keyPressed() {

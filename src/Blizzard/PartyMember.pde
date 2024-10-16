@@ -9,7 +9,7 @@ class PartyMember {
   // Constructor
   PartyMember (String n) {
     x = 0;
-    y = 0;
+    y = 500;
     cold = 0;
     speed = 10;
     health = 10;

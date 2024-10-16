@@ -7,8 +7,8 @@ class Enemy {
 
   // Constructor
   Enemy () {
-    x = 0;
-    y = 0;
+    x = 500;
+    y = 500;
     health = 0;
     damage = 0;
     speed = 0;
