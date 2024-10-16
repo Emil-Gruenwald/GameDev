@@ -21,6 +21,7 @@ void draw() {
   player.display();
   enemy.display();
   party.display();
+  player.inventory.get(0).display();
 }
 
 void keyPressed() {
