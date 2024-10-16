@@ -16,7 +16,7 @@ class Object {
 
   // Member Methods
   void display () {
-    image(sprite,width/2,height/2);
+    image(sprite, width/2,height/2);
   }
 
   void use (PartyMember p) {
