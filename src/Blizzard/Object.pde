@@ -2,7 +2,7 @@
 
 class Object {
   // Member Variables
-  int x ,y ,heal, damage, coldProtection;
+  int x, y, heal, damage, coldProtection;
   PImage sprite;
   char type;
 
