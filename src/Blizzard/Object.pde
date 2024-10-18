@@ -12,11 +12,14 @@ class Object {
     damage = 5;
     coldProtection = 20;
     sprite = loadImage("Torch.png");
+    type = 'w';
+    x = 370;
+    y = 350;
   }
 
   // Member Methods
   void display () {
-    image(sprite, width/2,height/2);
+    image(sprite, x, y);
   }
 
   void use (PartyMember p) {

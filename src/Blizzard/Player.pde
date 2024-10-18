@@ -17,6 +17,7 @@ class Player {
     y = 100;
     name = n;
     sprite = loadImage("Playerguy.png");
+    inventory.add(new Object());
   }
 
   // Member Methods
