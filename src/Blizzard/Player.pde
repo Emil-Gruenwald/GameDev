@@ -25,7 +25,19 @@ class Player {
     image(sprite, x, y);
   }
 
-  void move () {
+  void move (boolean keys[]) {
+    if (keys[0]) {
+      y -= 5;
+    }
+    if (keys[1]) {
+      x -= 5;
+    }
+    if (keys[2]) {
+      y += 5;
+    }
+    if (keys[3]) {
+      x += 5;
+    }
   }
 
   void attack () {

@@ -8,6 +8,8 @@ Player player;
 PartyMember party;
 Enemy enemy;
 
+boolean[] moveKeys = new boolean[4];
+
 boolean play;
 
 void setup() {
@@ -24,6 +26,7 @@ void setup() {
 void draw() {
   if (play) {
     background(100);
+    player.move(moveKeys);
     player.display();
     storm.update();
     storm.display();
@@ -32,19 +35,38 @@ void draw() {
   }
 }
 
-void keyPressed() {
-  if (key == ' ') {
-    play = true;
-  }
-}
-
-void mousePressed() {
-}
-
 void startScreen() {
   background(0);
   fill(255);
   textAlign(CENTER);
   textSize(50);
   text("Press Space", width/2, height/2);
+}
+
+void setMovement(int k, boolean b) {
+  switch (k) {
+  case 'w':
+    moveKeys[0] = b;
+    break;
+  case 'a':
+    moveKeys[1] = b;
+    break;
+  case 's':
+    moveKeys[2] = b;
+    break;
+  case 'd':
+    moveKeys[3] = b;
+    break;
+  }
+}
+
+void keyPressed() {
+  setMovement(key, true);
+  if (key == ' ') {
+    play = true;
+  }
+}
+
+void keyReleased() {
+  setMovement(key, false);
 }
