@@ -12,21 +12,21 @@ boolean play;
 
 void setup() {
   fullScreen();
+  noStroke();
   boss = new Boss();
   player = new Player("Joe");
   enemy = new Enemy();
   party = new PartyMember("Bob");
+  storm = new Storm();
   play = false;
 }
 
 void draw() {
   if (play) {
-    background(200);
-    boss.display();
+    background(100);
     player.display();
-    enemy.display();
-    party.display();
-    player.inventory.get(0).display();
+    storm.update();
+    storm.display();
   } else {
     startScreen();
   }
