@@ -34,16 +34,16 @@ void setup() {
 
 void draw() {
   if (play) {
-    background(0);
+    background(150);
 
-    for (int x = camX - tileSize; x < camX + width + tileSize; x += tileSize) {
-      for (int y = camY - tileSize; y < camY + height + tileSize; y += tileSize) {
-        int drawX = x - camX;
-        int drawY = y - camY;
-        fill((x + y) % 255);
-        rect(drawX, drawY, tileSize, tileSize);
-      }
-    }
+    //for (int x = camX - tileSize; x < camX + width + tileSize; x += tileSize) {
+    //  for (int y = camY - tileSize; y < camY + height + tileSize; y += tileSize) {
+    //    int drawX = x - camX;
+    //    int drawY = y - camY;
+    //    fill((x + y) % 255);
+    //    rect(drawX, drawY, tileSize, tileSize);
+    //  }
+    //}
     player.move(moveKeys);
 
     camX = player.x;
