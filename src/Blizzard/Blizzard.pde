@@ -57,6 +57,18 @@ void setMovement(int k, boolean b) {
   case 'd':
     moveKeys[3] = b;
     break;
+   case 'W':
+    moveKeys[0] = b;
+    break;
+  case 'A':
+    moveKeys[1] = b;
+    break;
+  case 'S':
+    moveKeys[2] = b;
+    break;
+  case 'D':
+    moveKeys[3] = b;
+    break;
   }
 }
 
