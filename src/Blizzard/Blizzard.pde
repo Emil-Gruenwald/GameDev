@@ -10,23 +10,45 @@ Enemy enemy;
 
 boolean[] moveKeys = new boolean[4];
 
+int camX, camY, tileSize;
+PImage base, obstacle;
+ArrayList<PVector> obstacles = new ArrayList<PVector>();
+
+int level;
 boolean play;
 
 void setup() {
   fullScreen();
   noStroke();
+  background(0);
   boss = new Boss();
   player = new Player("Joe");
   enemy = new Enemy();
   party = new PartyMember("Bob");
   storm = new Storm();
   play = false;
+  camX = 0;
+  camY = 0;
+  tileSize = 64;
 }
 
 void draw() {
   if (play) {
-    background(100);
+    background(0);
+
+    for (int x = camX - tileSize; x < camX + width + tileSize; x += tileSize) {
+      for (int y = camY - tileSize; y < camY + height + tileSize; y += tileSize) {
+        int drawX = x - camX;
+        int drawY = y - camY;
+        fill((x + y) % 255);
+        rect(drawX, drawY, tileSize, tileSize);
+      }
+    }
     player.move(moveKeys);
+
+    camX = player.x;
+    camY = player.y;
+
     player.display();
     storm.update();
     storm.display();
@@ -57,7 +79,7 @@ void setMovement(int k, boolean b) {
   case 'd':
     moveKeys[3] = b;
     break;
-   case 'W':
+  case 'W':
     moveKeys[0] = b;
     break;
   case 'A':
