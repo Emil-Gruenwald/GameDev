@@ -11,8 +11,10 @@ Enemy enemy;
 boolean[] moveKeys = new boolean[4];
 
 int camX, camY, tileSize;
-PImage base, obstacle;
-ArrayList<PVector> obstacles = new ArrayList<PVector>();
+PImage base, obstacle1, obstacle2, obstacle3;
+ArrayList<PVector> obstacles1 = new ArrayList<PVector>();
+ArrayList<PVector> obstacles2 = new ArrayList<PVector>();
+ArrayList<PVector> obstacles3 = new ArrayList<PVector>();
 
 int level;
 boolean play;
@@ -48,8 +50,8 @@ void draw() {
     
     player.move(moveKeys);
 
-    camX = player.x;
-    camY = player.y;
+    camX = player.x - (width/2);
+    camY = player.y - (height/2);
 
     player.display(camX, camY);
     storm.update();
