@@ -17,7 +17,7 @@ class Player {
     y = 0;
     name = n;
     sprite = loadImage("Playerguy2.png");
-    sprite.resize(0,128);
+    //sprite.resize(0,256);
     inventory.add(new Object());
   }
 
