@@ -11,10 +11,8 @@ Enemy enemy;
 boolean[] moveKeys = new boolean[4];
 
 int camX, camY, tileSize;
-PImage base, obstacle1, obstacle2, obstacle3;
-ArrayList<PVector> obstacles1 = new ArrayList<PVector>();
-ArrayList<PVector> obstacles2 = new ArrayList<PVector>();
-ArrayList<PVector> obstacles3 = new ArrayList<PVector>();
+PImage[] bases = new PImage[3]; 
+PImage[] obstacles = new PImage[3];
 
 int level;
 boolean play;
@@ -32,7 +30,8 @@ void setup() {
   camX = 0;
   camY = 0;
   tileSize = 64;
-  base = loadImage("dirtilecomp1.png");
+  bases[0] = loadImage("dirtile0.png");
+  bases[1] = loadImage("dirtile1.png");
 }
 
 void draw() {
@@ -43,8 +42,7 @@ void draw() {
       for (int y = camY - (camY % tileSize); y < camY + height + (camY % tileSize); y += tileSize) {
         int drawX = x - camX;
         int drawY = y - camY;
-        fill((x + y) % 255);
-        image(base, drawX, drawY);
+        image(bases[floor(random(2))], drawX, drawY);
       }
     }
     
