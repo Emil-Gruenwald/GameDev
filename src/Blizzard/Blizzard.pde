@@ -30,26 +30,28 @@ void setup() {
   camX = 0;
   camY = 0;
   tileSize = 64;
+  base = loadImage("dirtilecomp1.png");
 }
 
 void draw() {
   if (play) {
     background(150);
 
-    //for (int x = camX - tileSize; x < camX + width + tileSize; x += tileSize) {
-    //  for (int y = camY - tileSize; y < camY + height + tileSize; y += tileSize) {
-    //    int drawX = x - camX;
-    //    int drawY = y - camY;
-    //    fill((x + y) % 255);
-    //    rect(drawX, drawY, tileSize, tileSize);
-    //  }
-    //}
+    for (int x = camX - (camX % tileSize); x < camX + width + (camX % tileSize); x += tileSize) {
+      for (int y = camY - (camY % tileSize); y < camY + height + (camY % tileSize); y += tileSize) {
+        int drawX = x - camX;
+        int drawY = y - camY;
+        fill((x + y) % 255);
+        image(base, drawX, drawY);
+      }
+    }
+    
     player.move(moveKeys);
 
     camX = player.x;
     camY = player.y;
 
-    player.display();
+    player.display(camX, camY);
     storm.update();
     storm.display();
   } else {

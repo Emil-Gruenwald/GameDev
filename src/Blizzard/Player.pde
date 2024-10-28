@@ -21,8 +21,8 @@ class Player {
   }
 
   // Member Methods
-  void display () {
-    image(sprite, x, y);
+  void display (int camX, int camY) {
+    image(sprite, x - camX, y - camY);
   }
 
   void move (boolean keys[]) {
