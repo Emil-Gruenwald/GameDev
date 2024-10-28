@@ -30,7 +30,7 @@ void setup() {
   camX = 0;
   camY = 0;
   tileSize = 64;
-  bases[0] = loadImage("dirtile0.png");
+  bases[0] = loadImage("dirtTileColeNeves.png");
   bases[1] = loadImage("dirtile1.png");
 }
 
@@ -42,7 +42,7 @@ void draw() {
       for (int y = camY - (camY % tileSize); y < camY + height + (camY % tileSize); y += tileSize) {
         int drawX = x - camX;
         int drawY = y - camY;
-        image(bases[floor(random(2))], drawX, drawY);
+        image(bases[0], drawX, drawY);
       }
     }
     
