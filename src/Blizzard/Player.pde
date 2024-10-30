@@ -13,16 +13,17 @@ class Player {
     damage = 10;
     speed = 10;
     cold = 0;
-    x = 0;
-    y = 0;
+    x = 5000;
+    y = 5000;
     name = n;
     sprite = loadImage("Playerguy.png");
+    sprite.resize(0,128);
     inventory.add(new Object());
   }
 
   // Member Methods
-  void display () {
-    image(sprite, x, y);
+  void display (int camX, int camY) {
+    image(sprite, x - camX, y - camY);
   }
 
   void move (boolean keys[]) {

@@ -11,8 +11,8 @@ Enemy enemy;
 boolean[] moveKeys = new boolean[4];
 
 int camX, camY, tileSize;
-PImage base, obstacle;
-ArrayList<PVector> obstacles = new ArrayList<PVector>();
+PImage[] tileSprites = new PImage[4];
+ArrayList<PVector> tiles = new ArrayList<PVector>();
 
 int level;
 boolean play;
@@ -30,27 +30,30 @@ void setup() {
   camX = 0;
   camY = 0;
   tileSize = 64;
+  tileSprites[0] = loadImage("dirtTileColeNeves.png");
+  tileSprites[1] = loadImage("dirtile1.png");
 }
 
 void draw() {
   if (play) {
     background(150);
 
-    //for (int x = camX - tileSize; x < camX + width + tileSize; x += tileSize) {
-    //  for (int y = camY - tileSize; y < camY + height + tileSize; y += tileSize) {
-    //    int drawX = x - camX;
-    //    int drawY = y - camY;
-    //    fill((x + y) % 255);
-    //    rect(drawX, drawY, tileSize, tileSize);
-    //  }
-    //}
+    for (int x = camX - (camX % tileSize); x < camX + width + (camX % tileSize); x += tileSize) {
+      for (int y = camY - (camY % tileSize); y < camY + height + (camY % tileSize); y += tileSize) {
+        int drawX = x - camX;
+        int drawY = y - camY;
+        image(tileSprites[0], drawX, drawY);
+      }
+    }
+
     player.move(moveKeys);
 
-    camX = player.x;
-    camY = player.y;
-
-    player.display();
-    storm.update();
+    camX = player.x - (width/2);
+    camY = player.y - (height/2);
+    
+    player.display(camX, camY);
+    
+    storm.update(0, 0);
     storm.display();
   } else {
     startScreen();
