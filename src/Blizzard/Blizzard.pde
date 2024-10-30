@@ -23,6 +23,8 @@ void setup() {
   fullScreen();
   noStroke();
   background(0);
+  textFont(createFont("pixel.ttf", 32));
+  textAlign(LEFT, TOP);
   boss = new Boss();
   player = new Player("Joe");
   enemy = new Enemy();
@@ -73,9 +75,20 @@ void draw() {
 
     storm.update(0, 0);
     storm.display();
+    
+    hud();
   } else {
     startScreen();
   }
+}
+
+void hud () {
+  fill(#D6B69B, 230);
+  rect (10,10,300,80);
+  fill(0);
+  textSize(32);
+  text("Health:", 20, 20);
+  text("Temperature:", 20, 52);
 }
 
 void startScreen() {
