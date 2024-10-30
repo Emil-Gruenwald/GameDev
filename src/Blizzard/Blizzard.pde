@@ -11,11 +11,13 @@ Enemy enemy;
 boolean[] moveKeys = new boolean[4];
 
 int camX, camY, tileSize;
-PImage[] tileSprites = new PImage[4];
+PImage[] tileSprites = new PImage[3];
 ArrayList<PVector> tiles = new ArrayList<PVector>();
 
 int level;
 boolean play;
+
+PImage startScreen;
 
 void setup() {
   fullScreen();
@@ -27,32 +29,48 @@ void setup() {
   party = new PartyMember("Bob");
   storm = new Storm();
   play = false;
-  camX = 0;
-  camY = 0;
+  camX = 5000;
+  camY = 5000;
   tileSize = 64;
-  tileSprites[0] = loadImage("dirtTileColeNeves.png");
-  tileSprites[1] = loadImage("dirtile1.png");
+  //tileSprites[0] = loadImage("dirtTileColeNeves.png");
+  //tileSprites[1] = loadImage("dirtTileColeNeves(G).png");
+  tileSprites[0] = loadImage("dirtTileColeNeves(S).png");
+  tileSprites[1] = loadImage("dirtTileEmilGruenwald(M).png");
+  tileSprites[2] = loadImage("dirtTileEmilGruenwald(H).png");
+
+  for (int x = 0; x < 6400; x += tileSize) {
+    for (int y = 0; y < 6400; y += tileSize) {
+      tiles.add(new PVector(x, y, floor(random(3))));
+    }
+  }
+
+  startScreen = loadImage("StartScreenColeN.png");
+  startScreen.resize(width, height);
 }
 
 void draw() {
   if (play) {
     background(150);
 
-    for (int x = camX - (camX % tileSize); x < camX + width + (camX % tileSize); x += tileSize) {
-      for (int y = camY - (camY % tileSize); y < camY + height + (camY % tileSize); y += tileSize) {
-        int drawX = x - camX;
-        int drawY = y - camY;
-        image(tileSprites[0], drawX, drawY);
-      }
+    //for (int x = camX - (camX % tileSize); x < camX + width + (camX % tileSize); x += tileSize) {
+    //  for (int y = camY - (camY % tileSize); y < camY + height + (camY % tileSize); y += tileSize) {
+    //    int drawX = x - camX;
+    //    int drawY = y - camY;
+    //    image(tileSprites[0], drawX, drawY);
+    //  }
+    //}
+
+    for (int i = 0; i < tiles.size(); i ++) {
+      image(tileSprites[floor(tiles.get(i).z)], tiles.get(i).x-camX, tiles.get(i).y-camY);
     }
 
     player.move(moveKeys);
 
     camX = player.x - (width/2);
     camY = player.y - (height/2);
-    
+
     player.display(camX, camY);
-    
+
     storm.update(0, 0);
     storm.display();
   } else {
@@ -61,11 +79,12 @@ void draw() {
 }
 
 void startScreen() {
-  background(0);
-  fill(255);
-  textAlign(CENTER);
-  textSize(50);
-  text("Press Space", width/2, height/2);
+  image(startScreen, 0, 0);
+  //background(0);
+  //fill(255);
+  //textAlign(CENTER);
+  //textSize(50);
+  //text("Press Space", width/2, height/2);
 }
 
 void setMovement(int k, boolean b) {
