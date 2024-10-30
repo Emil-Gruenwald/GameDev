@@ -11,7 +11,7 @@ Enemy enemy;
 boolean[] moveKeys = new boolean[4];
 
 int camX, camY, tileSize;
-PImage[] tileSprites = new PImage[4];
+PImage[] tileSprites = new PImage[3];
 ArrayList<PVector> tiles = new ArrayList<PVector>();
 
 int level;
@@ -32,9 +32,11 @@ void setup() {
   camX = 5000;
   camY = 5000;
   tileSize = 64;
-  tileSprites[0] = loadImage("dirtTileColeNeves.png");
-  tileSprites[1] = loadImage("dirtTileColeNeves(G).png");
-  tileSprites[2] = loadImage("dirtTileColeNeves(S).png");
+  //tileSprites[0] = loadImage("dirtTileColeNeves.png");
+  //tileSprites[1] = loadImage("dirtTileColeNeves(G).png");
+  tileSprites[0] = loadImage("dirtTileColeNeves(S).png");
+  tileSprites[1] = loadImage("dirtTileEmilGruenwald(M).png");
+  tileSprites[2] = loadImage("dirtTileEmilGruenwald(H).png");
 
   for (int x = 0; x < 6400; x += tileSize) {
     for (int y = 0; y < 6400; y += tileSize) {

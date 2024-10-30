@@ -18,7 +18,7 @@ class Storm {
 
   // Member Methods
   void display () {
-    fill(255, 150);
+    fill(255, 200);
     for (int i = 0; i < particles.size(); i ++) {
       rect(particles.get(i).x, particles.get(i).y, particles.get(i).z, particles.get(i).z);
     }
