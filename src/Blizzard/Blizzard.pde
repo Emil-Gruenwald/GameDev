@@ -84,11 +84,17 @@ void draw() {
 
 void hud () {
   fill(#D6B69B, 230);
-  rect (10,10,300,80);
+  rect (10,10,320,80);
   fill(0);
   textSize(32);
   text("Health:", 20, 20);
   text("Temperature:", 20, 52);
+  
+  fill(0,255,0);
+  rect (120, 20, player.health * 2, 20);
+  
+  fill(#9DFDFF);
+  rect(205, 52, player.cold * 10, 20);
 }
 
 void startScreen() {

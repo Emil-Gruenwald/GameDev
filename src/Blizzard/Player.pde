@@ -9,10 +9,10 @@ class Player {
 
   // Constructor
   Player (String n) {
-    health = 10;
+    health = 100;
     damage = 10;
     speed = 10;
-    cold = 0;
+    cold = 10;
     x = 5000;
     y = 5000;
     name = n;
