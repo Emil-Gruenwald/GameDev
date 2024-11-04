@@ -3,7 +3,7 @@
 class Player {
   // Member Variables
   PImage sprite;
-  int health, damage, speed, cold, x, y;
+  int health, damage, speed, cold, x, y, sx, sy;
   String name;
   ArrayList<Object> inventory = new ArrayList<Object>();
 
@@ -13,8 +13,8 @@ class Player {
     damage = 10;
     speed = 10;
     cold = 10;
-    x = 1200;
-    y = 1200;
+    x = 1000;
+    y = 1000;
     name = n;
     sprite = loadImage("Playerguy.png");
     sprite.resize(0,128);
@@ -27,17 +27,19 @@ class Player {
   }
 
   void move (boolean keys[]) {
+    sx = 0;
+    sy = 0;
     if (keys[0]) {
-      y -= 5;
+      sy = -5;
     }
     if (keys[1]) {
-      x -= 5;
+      sx = -5;
     }
     if (keys[2]) {
-      y += 5;
+      sy = 5;
     }
     if (keys[3]) {
-      x += 5;
+      sx = 5;
     }
   }
 

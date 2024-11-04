@@ -26,8 +26,8 @@ class Storm {
   
   void update (int xOffset, int yOffset) {
     for (int i = 0; i < particles.size(); i ++) {
-      particles.get(i).x += 6 + random(2) + xOffset; 
-      particles.get(i).y += 6 + random(2) + yOffset;
+      particles.get(i).x += 3 + random(2) + xOffset; 
+      particles.get(i).y += 3 + random(2) + yOffset;
       
       if (particles.get(i).x > width) {
         particles.get(i).x  = 0;

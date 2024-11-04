@@ -32,8 +32,8 @@ void setup() {
   party = new PartyMember("Bob");
   storm = new Storm();
   play = false;
-  camX = 1200;
-  camY = 1200;
+  camX = 1000;
+  camY = 1000;
   tileSize = 64;
   worldHeight = 50;
   worldWidth = 50;
@@ -66,6 +66,7 @@ void draw() {
       for (int y = 0; y < worldHeight; y ++) {
         int drawX = (64*x) - camX;
         int drawY = (y*64) - camY;
+
         image(tileSprites[tiles[x][y]], drawX, drawY);
       }
     }
@@ -75,18 +76,31 @@ void draw() {
     //}
 
     player.move(moveKeys);
+    
+    player.x += player.sx;
+    if (tiles[(player.x-camX+30)/64][(player.y-camY + 64)/64] == 3) {
+      while(tiles[(player.x-camX+30)/64][(player.y-camY + 64)/64] == 3) {
+        player.x += abs(player.sx)/player.sx;
+      }
+    }
+    if (tiles[(player.x-camX+30)/64][(player.y-camY + 64)/64] == 3) {
+      while(tiles[(player.x-camX+30)/64][(player.y-camY + 64)/64] == 3) {
+        player.x += abs(player.sx)/player.sx;
+      }
+    }
+    player.y += player.sy;
 
     camX = player.x - (width/2);
     camY = player.y - (height/2);
 
     player.display(camX, camY);
-    
+
     fill(0);
     // this is the collosion hitbox rect(player.x-camX+30, player.y-camY + 64, 64, 64);
 
     storm.update(0, 0);
     storm.display();
-    
+
     hud();
   } else {
     startScreen();
@@ -95,15 +109,15 @@ void draw() {
 
 void hud () {
   fill(#D6B69B, 230);
-  rect (10,10,320,80);
+  rect (10, 10, 320, 80);
   fill(0);
   textSize(32);
   text("Health:", 20, 20);
   text("Temperature:", 20, 52);
-  
-  fill(0,255,0);
+
+  fill(0, 255, 0);
   rect (120, 20, player.health * 2, 20);
-  
+
   fill(#9DFDFF);
   rect(205, 52, player.cold * 10, 20);
 }
