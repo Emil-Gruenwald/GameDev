@@ -10,9 +10,10 @@ Enemy enemy;
 
 boolean[] moveKeys = new boolean[4];
 
-int camX, camY, tileSize;
+int camX, camY, tileSize, worldHeight, worldWidth;
 PImage[] tileSprites = new PImage[5];
-ArrayList<PVector> tiles = new ArrayList<PVector>();
+int[][] tiles = new int[50][50];
+// ArrayList<PVector> tiles = new ArrayList<PVector>();
 
 int level;
 boolean play;
@@ -31,9 +32,11 @@ void setup() {
   party = new PartyMember("Bob");
   storm = new Storm();
   play = false;
-  camX = 5000;
-  camY = 5000;
+  camX = 1200;
+  camY = 1200;
   tileSize = 64;
+  worldHeight = 50;
+  worldWidth = 50;
   //tileSprites[0] = loadImage("dirtTileColeNeves.png");
   //tileSprites[1] = loadImage("dirtTileColeNeves(G).png");
   tileSprites[0] = loadImage("dirtTileColeNeves(S).png");
@@ -42,11 +45,11 @@ void setup() {
   tileSprites[3] = loadImage("rocktile1ElliottMaw.png");
   tileSprites[4] = loadImage("rocktile2ElliottMaw.png");
 
-  for (int x = 0; x < 6400; x += tileSize) {
-    for (int y = 0; y < 6400; y += tileSize) {
-      tiles.add(new PVector(x, y, floor(random(3))));
-      if (x == 5120 && y == 5120) {
-        tiles.get(tiles.size()-1).z = 3;
+  for (int x = 0; x < worldWidth; x ++) {
+    for (int y = 0; y < worldHeight; y ++) {
+      tiles[x][y] = floor(random(3));
+      if (x == 20 && y == 20) {
+        tiles[x][y] = 3;
       }
     }
   }
@@ -59,17 +62,17 @@ void draw() {
   if (play) {
     background(150);
 
-    //for (int x = camX - (camX % tileSize); x < camX + width + (camX % tileSize); x += tileSize) {
-    //  for (int y = camY - (camY % tileSize); y < camY + height + (camY % tileSize); y += tileSize) {
-    //    int drawX = x - camX;
-    //    int drawY = y - camY;
-    //    image(tileSprites[0], drawX, drawY);
-    //  }
-    //}
-
-    for (int i = 0; i < tiles.size(); i ++) {
-      image(tileSprites[floor(tiles.get(i).z)], tiles.get(i).x-camX, tiles.get(i).y-camY);
+    for (int x = 0; x < worldWidth; x ++) {
+      for (int y = 0; y < worldHeight; y ++) {
+        int drawX = (64*x) - camX;
+        int drawY = (y*64) - camY;
+        image(tileSprites[tiles[x][y]], drawX, drawY);
+      }
     }
+
+    //for (int i = 0; i < tiles.size(); i ++) {
+    //  image(tileSprites[floor(tiles.get(i).z)], tiles.get(i).x-camX, tiles.get(i).y-camY);
+    //}
 
     player.move(moveKeys);
 
@@ -79,7 +82,7 @@ void draw() {
     player.display(camX, camY);
     
     fill(0);
-    //rect(player.x-camX, player.y-camY + 64, 64, 64);
+    // this is the collosion hitbox rect(player.x-camX+30, player.y-camY + 64, 64, 64);
 
     storm.update(0, 0);
     storm.display();

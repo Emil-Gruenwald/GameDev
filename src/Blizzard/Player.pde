@@ -13,8 +13,8 @@ class Player {
     damage = 10;
     speed = 10;
     cold = 10;
-    x = 5000;
-    y = 5000;
+    x = 1200;
+    y = 1200;
     name = n;
     sprite = loadImage("Playerguy.png");
     sprite.resize(0,128);
