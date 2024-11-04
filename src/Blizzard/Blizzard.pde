@@ -76,19 +76,50 @@ void draw() {
     //}
 
     player.move(moveKeys);
-    
+
     player.x += player.sx;
-    if (tiles[(player.x-camX+30)/64][(player.y-camY + 64)/64] == 3) {
-      while(tiles[(player.x-camX+30)/64][(player.y-camY + 64)/64] == 3) {
-        player.x += abs(player.sx)/player.sx;
+    if (tiles[(player.x)/64][(player.y + 96)/64] == 3) {
+      while (tiles[(player.x)/64][(player.y + 96)/64] == 3) {
+        player.x -= abs(player.sx)/player.sx;
       }
     }
-    if (tiles[(player.x-camX+30)/64][(player.y-camY + 64)/64] == 3) {
-      while(tiles[(player.x-camX+30)/64][(player.y-camY + 64)/64] == 3) {
-        player.x += abs(player.sx)/player.sx;
+    if (tiles[(player.x+68)/64][(player.y + 128)/64] == 3) {
+      while (tiles[(player.x+68)/64][(player.y + 128)/64] == 3) {
+        player.x -= abs(player.sx)/player.sx;
       }
     }
+    if (tiles[(player.x+68)/64][(player.y + 96)/64] == 3) {
+      while (tiles[(player.x+68)/64][(player.y + 96)/64] == 3) {
+        player.x -= abs(player.sx)/player.sx;
+      }
+    }
+    if (tiles[(player.x)/64][(player.y + 128)/64] == 3) {
+      while (tiles[(player.x)/64][(player.y + 128)/64] == 3) {
+        player.x -= abs(player.sx)/player.sx;
+      }
+    }
+
     player.y += player.sy;
+    if (tiles[(player.x)/64][(player.y + 96)/64] == 3) {
+      while (tiles[(player.x)/64][(player.y + 96)/64] == 3) {
+        player.y -= abs(player.sy)/player.sy;
+      }
+    }
+    if (tiles[(player.x+68)/64][(player.y + 128)/64] == 3) {
+      while (tiles[(player.x+68)/64][(player.y + 128)/64] == 3) {
+        player.y -= abs(player.sy)/player.sy;
+      }
+    }
+    if (tiles[(player.x+68)/64][(player.y + 96)/64] == 3) {
+      while (tiles[(player.x+68)/64][(player.y + 96)/64] == 3) {
+        player.y -= abs(player.sy)/player.sy;
+      }
+    }
+    if (tiles[(player.x)/64][(player.y + 128)/64] == 3) {
+      while (tiles[(player.x)/64][(player.y + 128)/64] == 3) {
+        player.y -= abs(player.sy)/player.sy;
+      }
+    }
 
     camX = player.x - (width/2);
     camY = player.y - (height/2);
@@ -96,7 +127,8 @@ void draw() {
     player.display(camX, camY);
 
     fill(0);
-    // this is the collosion hitbox rect(player.x-camX+30, player.y-camY + 64, 64, 64);
+    // this is the collosion hitbox
+    //rect(player.x-camX, player.y-camY + 64, 68, 64);
 
     storm.update(0, 0);
     storm.display();
