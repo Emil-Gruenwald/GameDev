@@ -11,7 +11,7 @@ Enemy enemy;
 boolean[] moveKeys = new boolean[4];
 
 int camX, camY, tileSize;
-PImage[] tileSprites = new PImage[3];
+PImage[] tileSprites = new PImage[5];
 ArrayList<PVector> tiles = new ArrayList<PVector>();
 
 int level;
@@ -39,10 +39,15 @@ void setup() {
   tileSprites[0] = loadImage("dirtTileColeNeves(S).png");
   tileSprites[1] = loadImage("dirtTileEmilGruenwald(M).png");
   tileSprites[2] = loadImage("dirtTileEmilGruenwald(H).png");
+  tileSprites[3] = loadImage("rocktile1ElliottMaw.png");
+  tileSprites[4] = loadImage("rocktile2ElliottMaw.png");
 
   for (int x = 0; x < 6400; x += tileSize) {
     for (int y = 0; y < 6400; y += tileSize) {
       tiles.add(new PVector(x, y, floor(random(3))));
+      if (x == 5120 && y == 5120) {
+        tiles.get(tiles.size()-1).z = 3;
+      }
     }
   }
 
@@ -72,6 +77,9 @@ void draw() {
     camY = player.y - (height/2);
 
     player.display(camX, camY);
+    
+    fill(0);
+    //rect(player.x-camX, player.y-camY + 64, 64, 64);
 
     storm.update(0, 0);
     storm.display();
