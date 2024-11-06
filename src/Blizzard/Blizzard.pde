@@ -78,45 +78,45 @@ void draw() {
     player.move(moveKeys);
 
     player.x += player.sx;
-    if (tiles[(player.x)/64][(player.y + 96)/64] == 3) {
-      while (tiles[(player.x)/64][(player.y + 96)/64] == 3) {
+    if (tiles[(player.x+4)/64][(player.y + 96)/64] == 3) {
+      while (tiles[(player.x+4)/64][(player.y + 96)/64] == 3) {
         player.x -= abs(player.sx)/player.sx;
       }
     }
-    if (tiles[(player.x+68)/64][(player.y + 128)/64] == 3) {
-      while (tiles[(player.x+68)/64][(player.y + 128)/64] == 3) {
+    if (tiles[(player.x+64)/64][(player.y + 128)/64] == 3) {
+      while (tiles[(player.x+64)/64][(player.y + 128)/64] == 3) {
         player.x -= abs(player.sx)/player.sx;
       }
     }
-    if (tiles[(player.x+68)/64][(player.y + 96)/64] == 3) {
-      while (tiles[(player.x+68)/64][(player.y + 96)/64] == 3) {
+    if (tiles[(player.x+64)/64][(player.y + 96)/64] == 3) {
+      while (tiles[(player.x+64)/64][(player.y + 96)/64] == 3) {
         player.x -= abs(player.sx)/player.sx;
       }
     }
-    if (tiles[(player.x)/64][(player.y + 128)/64] == 3) {
-      while (tiles[(player.x)/64][(player.y + 128)/64] == 3) {
+    if (tiles[(player.x+4)/64][(player.y + 128)/64] == 3) {
+      while (tiles[(player.x+4)/64][(player.y + 128)/64] == 3) {
         player.x -= abs(player.sx)/player.sx;
       }
     }
 
     player.y += player.sy;
-    if (tiles[(player.x)/64][(player.y + 96)/64] == 3) {
-      while (tiles[(player.x)/64][(player.y + 96)/64] == 3) {
+    if (tiles[(player.x+4)/64][(player.y + 96)/64] == 3) {
+      while (tiles[(player.x+4)/64][(player.y + 96)/64] == 3) {
         player.y -= abs(player.sy)/player.sy;
       }
     }
-    if (tiles[(player.x+68)/64][(player.y + 128)/64] == 3) {
-      while (tiles[(player.x+68)/64][(player.y + 128)/64] == 3) {
+    if (tiles[(player.x+64)/64][(player.y + 128)/64] == 3) {
+      while (tiles[(player.x+64)/64][(player.y + 128)/64] == 3) {
         player.y -= abs(player.sy)/player.sy;
       }
     }
-    if (tiles[(player.x+68)/64][(player.y + 96)/64] == 3) {
-      while (tiles[(player.x+68)/64][(player.y + 96)/64] == 3) {
+    if (tiles[(player.x+64)/64][(player.y + 96)/64] == 3) {
+      while (tiles[(player.x+64)/64][(player.y + 96)/64] == 3) {
         player.y -= abs(player.sy)/player.sy;
       }
     }
-    if (tiles[(player.x)/64][(player.y + 128)/64] == 3) {
-      while (tiles[(player.x)/64][(player.y + 128)/64] == 3) {
+    if (tiles[(player.x+4)/64][(player.y + 128)/64] == 3) {
+      while (tiles[(player.x+4)/64][(player.y + 128)/64] == 3) {
         player.y -= abs(player.sy)/player.sy;
       }
     }
