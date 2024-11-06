@@ -10,7 +10,7 @@ Enemy enemy;
 
 boolean[] moveKeys = new boolean[4];
 
-int camX, camY, tileSize, worldHeight, worldWidth;
+int camX, camY, camXChange, camYChange, tileSize, worldHeight, worldWidth;
 PImage[] tileSprites = new PImage[5];
 int[][] tiles = new int[50][50];
 // ArrayList<PVector> tiles = new ArrayList<PVector>();
@@ -32,8 +32,8 @@ void setup() {
   party = new PartyMember("Bob");
   storm = new Storm();
   play = false;
-  camX = 1000;
-  camY = 1000;
+  camX = 83;
+  camY = 533;
   tileSize = 64;
   worldHeight = 50;
   worldWidth = 50;
@@ -120,9 +120,14 @@ void draw() {
         player.y -= abs(player.sy)/player.sy;
       }
     }
+    
+    
 
-    camX = player.x - (width/2);
-    camY = player.y - (height/2);
+    camXChange = ((player.x - (width/2) + 34)- camX)/50;
+    camYChange = ((player.y - (height/2) + 64)- camY)/50;
+    
+    camX += camXChange;
+    camY += camYChange;
 
     player.display(camX, camY);
 
@@ -130,10 +135,10 @@ void draw() {
     // this is the collosion hitbox
     //rect(player.x-camX, player.y-camY + 64, 68, 64);
 
-    storm.update(0, 0);
+    storm.update(-camXChange, -camYChange);
     storm.display();
 
-    hud();
+    hud(); //<>//
   } else {
     startScreen();
   }
