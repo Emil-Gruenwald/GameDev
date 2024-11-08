@@ -40,7 +40,7 @@ void setup() {
   tileSize = 64;
   worldHeight = 50;
   worldWidth = 50;
-  music = new SoundFile(this, "music.wav");
+  music = new SoundFile(this, "background.wav");
   //tileSprites[0] = loadImage("dirtTileColeNeves.png");
   //tileSprites[1] = loadImage("dirtTileColeNeves(G).png");
   tileSprites[0] = loadImage("dirtTileColeNeves(S).png");
@@ -66,6 +66,7 @@ void setup() {
 
 void draw() {
   if (play) {
+    //music.loop();
     background(150);
 
     for (int x = 0; x < worldWidth; x ++) {
