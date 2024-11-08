@@ -1,4 +1,7 @@
 // Emil Gruenwald
+import processing.sound.*;
+
+SoundFile music;
 
 Storm storm;
 Boss boss;
@@ -37,6 +40,7 @@ void setup() {
   tileSize = 64;
   worldHeight = 50;
   worldWidth = 50;
+  music = new SoundFile(this, "music.wav");
   //tileSprites[0] = loadImage("dirtTileColeNeves.png");
   //tileSprites[1] = loadImage("dirtTileColeNeves(G).png");
   tileSprites[0] = loadImage("dirtTileColeNeves(S).png");
@@ -56,6 +60,8 @@ void setup() {
 
   startScreen = loadImage("StartScreenColeN.png");
   startScreen.resize(width, height);
+  
+  music.loop();
 }
 
 void draw() {
@@ -74,6 +80,7 @@ void draw() {
     //for (int i = 0; i < tiles.size(); i ++) {
     //  image(tileSprites[floor(tiles.get(i).z)], tiles.get(i).x-camX, tiles.get(i).y-camY);
     //}
+    
 
     player.move(moveKeys);
 
