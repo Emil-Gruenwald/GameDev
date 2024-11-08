@@ -29,16 +29,16 @@ class Player {
     sx = 0;
     sy = 0;
     if (keys[0]) {
-      sy = -5;
+      sy = -3;
     }
     if (keys[1]) {
-      sx = -5;
+      sx = -3;
     }
     if (keys[2]) {
-      sy = 5;
+      sy = 3;
     }
     if (keys[3]) {
-      sx = 5;
+      sx = 3;
     }
   }
 
