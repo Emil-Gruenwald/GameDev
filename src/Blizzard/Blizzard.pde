@@ -1,4 +1,4 @@
-// Emil Gruenwald
+// Emil Gruenwald //<>//
 import processing.sound.*;
 
 SoundFile music;
@@ -14,9 +14,9 @@ Enemy enemy;
 boolean[] moveKeys = new boolean[4];
 
 int camX, camY, camXChange, camYChange, tileSize, worldHeight, worldWidth;
-PImage[] tileSprites = new PImage[5];
+PImage[] tileSprites = new PImage[7];
 int[][] tiles = new int[50][50];
-// ArrayList<PVector> tiles = new ArrayList<PVector>();
+ArrayList<PVector> entrances = new ArrayList<PVector>();
 
 int level;
 boolean play;
@@ -29,6 +29,7 @@ void setup() {
   background(0);
   textFont(createFont("pixel.ttf", 32));
   textAlign(LEFT, TOP);
+  level = 0;
   boss = new Boss();
   player = new Player("Joe");
   enemy = new Enemy();
@@ -41,26 +42,19 @@ void setup() {
   worldHeight = 50;
   worldWidth = 50;
   music = new SoundFile(this, "background.wav");
-  //tileSprites[0] = loadImage("dirtTileColeNeves.png");
-  //tileSprites[1] = loadImage("dirtTileColeNeves(G).png");
+  tileSprites[5] = loadImage("dirtTileColeNeves.png");
+  tileSprites[6] = loadImage("dirtTileColeNeves(G).png");
   tileSprites[0] = loadImage("dirtTileColeNeves(S).png");
   tileSprites[1] = loadImage("dirtTileEmilGruenwald(M).png");
   tileSprites[2] = loadImage("dirtTileEmilGruenwald(H).png");
   tileSprites[3] = loadImage("rocktile1ElliottMaw.png");
   tileSprites[4] = loadImage("rocktile2ElliottMaw.png");
 
-  for (int x = 0; x < worldWidth; x ++) {
-    for (int y = 0; y < worldHeight; y ++) {
-      tiles[x][y] = floor(random(3));
-      if (x == 20 && y == 20) {
-        tiles[x][y] = 3;
-      }
-    }
-  }
+  setupLevel();
 
   startScreen = loadImage("StartScreenColeN.png");
   startScreen.resize(width, height);
-  
+
   music.loop();
 }
 
@@ -77,11 +71,16 @@ void draw() {
         image(tileSprites[tiles[x][y]], drawX, drawY);
       }
     }
+    
+    for (int i = 0; i < entrances.size(); i++) {
+      fill(0);
+      rect(entrances.get(i).x*64-camX, entrances.get(i).y*64-camY, tileSize, tileSize);
+    }
 
     //for (int i = 0; i < tiles.size(); i ++) {
     //  image(tileSprites[floor(tiles.get(i).z)], tiles.get(i).x-camX, tiles.get(i).y-camY);
     //}
-    
+
 
     player.move(moveKeys);
 
@@ -128,12 +127,12 @@ void draw() {
         player.y -= abs(player.sy)/player.sy;
       }
     }
-    
-    
+
+
 
     camXChange = ((player.x - (width/2) + 34)- camX)/50;
     camYChange = ((player.y - (height/2) + 64)- camY)/50;
-    
+
     camX += camXChange;
     camY += camYChange;
 
@@ -146,9 +145,30 @@ void draw() {
     storm.update(-camXChange, -camYChange);
     storm.display();
 
-    hud(); //<>//
+    hud();
   } else {
     startScreen();
+  }
+}
+
+void setupLevel () {
+
+  entrances.clear();
+  
+  if (level == 0) {
+    for (int x = 0; x < worldWidth; x ++) {
+      for (int y = 0; y < worldHeight; y ++) {
+        tiles[x][y] = floor(random(3));
+        if (x == 20 && y == 20) {
+          tiles[x][y] = 3;
+        }
+      }
+    }
+    
+    entrances.add(new PVector(0,0,1));
+  } else if (level == 1) {
+  } else if (level == 2) {
+  } else if (level == 3) {
   }
 }
 
