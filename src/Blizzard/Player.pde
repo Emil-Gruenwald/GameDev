@@ -8,6 +8,7 @@ class Player {
   String name;
   ArrayList<Object> inventory = new ArrayList<Object>();
   PImage walkSide[] = new PImage [8];
+  PImage walkVert[] = new PImage [8];
 
   // Constructor
   Player (String n) {
@@ -30,6 +31,15 @@ class Player {
     walkSide[5] = loadImage("Playerwalk-6.png");
     walkSide[6] = loadImage("Playerwalk-5.png");
     walkSide[7] = loadImage("Playerwalk-7.png");
+
+    walkVert[0] = loadImage("Playerguy.png");
+    walkVert[1] = loadImage("Playerfront2.png");
+    walkVert[2] = loadImage("Playerguy.png");
+    walkVert[3] = loadImage("Playerfront3.png");
+    walkVert[4] = loadImage("Playerback1.png");
+    walkVert[5] = loadImage("Playerback2.png");
+    walkVert[6] = loadImage("Playerback1.png");
+    walkVert[7] = loadImage("Playerback3.png");
   }
 
   // Member Methods
@@ -39,6 +49,12 @@ class Player {
         image(walkSide[floor(frame)+4], x - camX, y - camY);
       } else {
         image(walkSide[floor(frame)], x - camX, y - camY);
+      }
+    } else if (sy != 0) {
+      if (sy < 0) {
+        image(walkVert[floor(frame)+4], x - camX, y - camY);
+      } else {
+        image(walkVert[floor(frame)], x - camX, y - camY);
       }
     } else {
       image(sprite, x - camX, y - camY);
