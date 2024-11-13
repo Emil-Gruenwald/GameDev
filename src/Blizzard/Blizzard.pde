@@ -14,7 +14,6 @@ Enemy enemy;
 boolean[] moveKeys = new boolean[4];
 
 int camX, camY, camXChange, camYChange, tileSize, worldHeight, worldWidth;
-PImage[] tileSprites = new PImage[7];
 int[][] tiles = new int[50][50];
 ArrayList<PVector> entrances = new ArrayList<PVector>();
 
@@ -29,6 +28,10 @@ int[][] corners = {
 };
 
 PImage startScreen;
+
+
+
+PImage[] tileSprites = new PImage[7];
 
 void setup() {
   fullScreen();
@@ -110,7 +113,9 @@ void draw() {
     //rect(player.x-camX, player.y-camY + 64, 68, 64);
 
     storm.update(-camXChange, -camYChange);
-    storm.display();
+    if (level == 0) {
+      storm.display();
+    }
 
     hud();
   } else {
@@ -134,6 +139,15 @@ void setupLevel () {
 
     entrances.add(new PVector(0, 0, 1));
   } else if (level == 1) {
+    for (int x = 0; x < worldWidth; x ++) {
+      for (int y = 0; y < worldHeight; y ++) {
+        tiles[x][y] = floor(random(2)+5);
+        if (x == 20 && y == 20) {
+          tiles[x][y] = 3;
+        }
+      }
+    }
+    entrances.add(new PVector(0, 0, 0));
   } else if (level == 2) {
   } else if (level == 3) {
   }
@@ -217,6 +231,15 @@ void checkAndResolveCollision(int[][] tiles, Player player, int moveX, int moveY
         player.y -= moveY; // Undo the y movement if collision
       }
       return; // Exit the function if collision occurs
+    }
+    for (int i = 0; i < entrances.size(); i++) {
+      if (checkX == entrances.get(i).x && checkY == entrances.get(i).y) {
+        level = floor(entrances.get(i).z);
+        setupLevel();
+        
+        player.x += player.sx * - 21;
+        player.y += player.sy * - 21;
+      }
     }
   }
 }
