@@ -18,7 +18,7 @@ int[][] tiles = new int[50][50];
 ArrayList<PVector> entrances = new ArrayList<PVector>();
 
 int level;
-boolean play;
+boolean play, battle;
 
 int[][] corners = {
   {4, 96},
@@ -46,6 +46,7 @@ void setup() {
   party = new PartyMember("Bob");
   storm = new Storm();
   play = false;
+  battle = false;
   camX = 83;
   camY = 533;
   tileSize = 64;
@@ -208,9 +209,9 @@ void setMovement(int k, boolean b) {
 
 void keyPressed() {
   setMovement(key, true);
-  if (key == ' ') {
-    play = true;
-  }
+  //if (key == ' ') {
+  //  play = true;
+  //}
 }
 
 void keyReleased() {
@@ -239,7 +240,15 @@ void checkAndResolveCollision(int[][] tiles, Player player, int moveX, int moveY
         
         player.x += player.sx * - 21;
         player.y += player.sy * - 21;
+        
+        return;
       }
     }
+  }
+}
+
+void mousePressed() {
+  if (!play && mouseX > width * 0.31153846153 && mouseX < width - width * 0.31153846153 && mouseY > height * 0.47222222222 && mouseY < height - height * 0.3) {
+     play = true;
   }
 }
