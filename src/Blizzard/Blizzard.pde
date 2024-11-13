@@ -21,6 +21,13 @@ ArrayList<PVector> entrances = new ArrayList<PVector>();
 int level;
 boolean play;
 
+int[][] corners = {
+  {4, 96},
+  {64, 128},
+  {64, 96},
+  {4, 128}
+};
+
 PImage startScreen;
 
 void setup() {
@@ -71,7 +78,7 @@ void draw() {
         image(tileSprites[tiles[x][y]], drawX, drawY);
       }
     }
-    
+
     for (int i = 0; i < entrances.size(); i++) {
       fill(0);
       rect(entrances.get(i).x*64-camX, entrances.get(i).y*64-camY, tileSize, tileSize);
@@ -81,54 +88,14 @@ void draw() {
     //  image(tileSprites[floor(tiles.get(i).z)], tiles.get(i).x-camX, tiles.get(i).y-camY);
     //}
 
-
+    // Move player and apply collision checks
     player.move(moveKeys);
 
     player.x += player.sx;
-    if (tiles[(player.x+4)/64][(player.y + 96)/64] == 3) {
-      while (tiles[(player.x+4)/64][(player.y + 96)/64] == 3) {
-        player.x -= abs(player.sx)/player.sx;
-      }
-    }
-    if (tiles[(player.x+64)/64][(player.y + 128)/64] == 3) {
-      while (tiles[(player.x+64)/64][(player.y + 128)/64] == 3) {
-        player.x -= abs(player.sx)/player.sx;
-      }
-    }
-    if (tiles[(player.x+64)/64][(player.y + 96)/64] == 3) {
-      while (tiles[(player.x+64)/64][(player.y + 96)/64] == 3) {
-        player.x -= abs(player.sx)/player.sx;
-      }
-    }
-    if (tiles[(player.x+4)/64][(player.y + 128)/64] == 3) {
-      while (tiles[(player.x+4)/64][(player.y + 128)/64] == 3) {
-        player.x -= abs(player.sx)/player.sx;
-      }
-    }
+    checkAndResolveCollision(tiles, player, player.sx, 0);
 
     player.y += player.sy;
-    if (tiles[(player.x+4)/64][(player.y + 96)/64] == 3) {
-      while (tiles[(player.x+4)/64][(player.y + 96)/64] == 3) {
-        player.y -= abs(player.sy)/player.sy;
-      }
-    }
-    if (tiles[(player.x+64)/64][(player.y + 128)/64] == 3) {
-      while (tiles[(player.x+64)/64][(player.y + 128)/64] == 3) {
-        player.y -= abs(player.sy)/player.sy;
-      }
-    }
-    if (tiles[(player.x+64)/64][(player.y + 96)/64] == 3) {
-      while (tiles[(player.x+64)/64][(player.y + 96)/64] == 3) {
-        player.y -= abs(player.sy)/player.sy;
-      }
-    }
-    if (tiles[(player.x+4)/64][(player.y + 128)/64] == 3) {
-      while (tiles[(player.x+4)/64][(player.y + 128)/64] == 3) {
-        player.y -= abs(player.sy)/player.sy;
-      }
-    }
-
-
+    checkAndResolveCollision(tiles, player, 0, player.sy);
 
     camXChange = ((player.x - (width/2) + 34)- camX)/50;
     camYChange = ((player.y - (height/2) + 64)- camY)/50;
@@ -154,7 +121,7 @@ void draw() {
 void setupLevel () {
 
   entrances.clear();
-  
+
   if (level == 0) {
     for (int x = 0; x < worldWidth; x ++) {
       for (int y = 0; y < worldHeight; y ++) {
@@ -164,8 +131,8 @@ void setupLevel () {
         }
       }
     }
-    
-    entrances.add(new PVector(0,0,1));
+
+    entrances.add(new PVector(0, 0, 1));
   } else if (level == 1) {
   } else if (level == 2) {
   } else if (level == 3) {
@@ -234,4 +201,22 @@ void keyPressed() {
 
 void keyReleased() {
   setMovement(key, false);
+}
+
+// Function to check and resolve collisions
+void checkAndResolveCollision(int[][] tiles, Player player, int moveX, int moveY) {
+  for (int[] offset : corners) {
+    int checkX = (player.x + offset[0] + moveX) / 64;
+    int checkY = (player.y + offset[1] + moveY) / 64;
+
+    if (tiles[checkX][checkY] == 3) {
+      if (moveX != 0) {
+        player.x -= moveX; // Undo the x movement if collision
+      }
+      if (moveY != 0) {
+        player.y -= moveY; // Undo the y movement if collision
+      }
+      return; // Exit the function if collision occurs
+    }
+  }
 }
