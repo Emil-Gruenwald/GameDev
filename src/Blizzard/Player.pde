@@ -32,9 +32,9 @@ class Player {
     walkSide[6] = loadImage("Playerwalk-5.png");
     walkSide[7] = loadImage("Playerwalk-7.png");
 
-    walkVert[0] = loadImage("Playerguy.png");
+    walkVert[0] = loadImage("Playerfront1.png");
     walkVert[1] = loadImage("Playerfront2.png");
-    walkVert[2] = loadImage("Playerguy.png");
+    walkVert[2] = loadImage("Playerfront1.png");
     walkVert[3] = loadImage("Playerfront3.png");
     walkVert[4] = loadImage("Playerback1.png");
     walkVert[5] = loadImage("Playerback2.png");
