@@ -79,7 +79,9 @@ void draw() {
         int drawX = (64*x) - camX;
         int drawY = (y*64) - camY;
 
-        image(tileSprites[tiles[x][y]], drawX, drawY);
+        if (x >= 0 && y >= 0 && x < worldWidth && y < worldHeight) {
+          image(tileSprites[tiles[x][y]], drawX, drawY);
+        }
       }
     }
 
