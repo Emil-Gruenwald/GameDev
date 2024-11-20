@@ -59,7 +59,7 @@ void setup() {
   tileSprites[1] = loadImage("dirtTileEmilGruenwald(M).png");
   tileSprites[2] = loadImage("dirtTileEmilGruenwald(H).png");
   tileSprites[3] = loadImage("dirtTileColeNeves(Rs).png");
-  tileSprites[4] = loadImage("rocktile2ElliottMaw.png");
+  tileSprites[4] = loadImage("rocktile2Elliottmaw.png");
   tileSprites[7] = loadImage("TreeTileColeNeves.png");
 
   setupLevel();
