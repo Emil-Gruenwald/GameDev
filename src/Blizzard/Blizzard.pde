@@ -83,7 +83,8 @@ void draw() {
         if (drawX >= -64 && drawY >= -64 && drawX <= width + 64 && drawY <= height + 64) {
           if (x >= 0 && y >= 0 && x < worldWidth && y < worldHeight) {
             image(tileSprites[tiles[x][y]], drawX, drawY);
-          } else if (abs(y%2) == 1) {
+          } else if (true//abs(y%2) == 1
+          ) {
             image(tileSprites[7], drawX, drawY-64);
           }
         }
