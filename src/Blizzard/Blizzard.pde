@@ -1,4 +1,4 @@
-// Emil Gruenwald //<>//
+// Emil Gruenwald //<>// //<>//
 import processing.sound.*;
 
 SoundFile music;
@@ -80,7 +80,7 @@ void draw() {
         int drawX = (64*x) - camX;
         int drawY = (y*64) - camY;
 
-        if (drawX >= -64 && drawY >= -64 && drawX <= width + 64 && drawY <= height + 64) {
+        if (drawX >= -256 && drawY >= -384 && drawX <= width + 64 && drawY <= height + 64) {
           if (x >= 0 && y >= 0 && x < worldWidth && y < worldHeight) {
             image(tileSprites[tiles[x][y]], drawX, drawY);
           } else if (abs(y%6) == 0 && abs(x%4) == 0) {
