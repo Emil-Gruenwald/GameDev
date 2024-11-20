@@ -31,7 +31,7 @@ PImage startScreen;
 
 
 
-PImage[] tileSprites = new PImage[7];
+PImage[] tileSprites = new PImage[8];
 
 void setup() {
   fullScreen();
@@ -60,6 +60,7 @@ void setup() {
   tileSprites[2] = loadImage("dirtTileEmilGruenwald(H).png");
   tileSprites[3] = loadImage("dirtTileColeNeves(Rs).png");
   tileSprites[4] = loadImage("rocktile2ElliottMaw.png");
+  tileSprites[7] = loadImage("TreeTileColeNeves.png");
 
   setupLevel();
 
@@ -74,13 +75,15 @@ void draw() {
     //music.loop();
     background(150);
 
-    for (int x = 0; x < worldWidth; x ++) {
-      for (int y = 0; y < worldHeight; y ++) {
+    for (int x = -20; x < worldWidth + 20; x ++) {
+      for (int y = -10; y < worldHeight + 10; y ++) {
         int drawX = (64*x) - camX;
         int drawY = (y*64) - camY;
 
         if (x >= 0 && y >= 0 && x < worldWidth && y < worldHeight) {
           image(tileSprites[tiles[x][y]], drawX, drawY);
+        } else if (abs(y%2) == 1) {
+          image(tileSprites[7], drawX, drawY-64);
         }
       }
     }
