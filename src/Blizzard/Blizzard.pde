@@ -80,10 +80,12 @@ void draw() {
         int drawX = (64*x) - camX;
         int drawY = (y*64) - camY;
 
-        if (x >= 0 && y >= 0 && x < worldWidth && y < worldHeight) {
-          image(tileSprites[tiles[x][y]], drawX, drawY);
-        } else if (abs(y%2) == 1) {
-          image(tileSprites[7], drawX, drawY-64);
+        if (drawX >= -64 && drawY >= -64 && drawX <= width + 64 && drawY <= height + 64) {
+          if (x >= 0 && y >= 0 && x < worldWidth && y < worldHeight) {
+            image(tileSprites[tiles[x][y]], drawX, drawY);
+          } else if (abs(y%2) == 1) {
+            image(tileSprites[7], drawX, drawY-64);
+          }
         }
       }
     }
@@ -242,10 +244,10 @@ void checkAndResolveCollision(int[][] tiles, Player player, int moveX, int moveY
       if (checkX == entrances.get(i).x && checkY == entrances.get(i).y) {
         level = floor(entrances.get(i).z);
         setupLevel();
-        
+
         player.x += player.sx * - 21;
         player.y += player.sy * - 21;
-        
+
         return;
       }
     }
@@ -254,6 +256,6 @@ void checkAndResolveCollision(int[][] tiles, Player player, int moveX, int moveY
 
 void mousePressed() {
   if (!play && mouseX > width * 0.31153846153 && mouseX < width - width * 0.31153846153 && mouseY > height * 0.47222222222 && mouseY < height - height * 0.3) {
-     play = true;
+    play = true;
   }
 }
