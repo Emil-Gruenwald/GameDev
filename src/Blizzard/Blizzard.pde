@@ -42,7 +42,7 @@ void setup() {
   level = 0;
   boss = new Boss();
   player = new Player("Joe");
-  enemy = new Enemy();
+  enemy = new Enemy(1280, 1280);
   party = new PartyMember("Bob");
   storm = new Storm();
   play = false;
@@ -71,16 +71,16 @@ void setup() {
 }
 
 void draw() {
-  if (play) {
+  if (play && !battle) {
     //music.loop();
     background(150);
 
     for (int x = -20; x < worldWidth + 20; x ++) {
-      for (int y = -10; y < worldHeight + 10; y ++) {
+      for (int y = -20; y < worldHeight + 20; y ++) {
         int drawX = (64*x) - camX;
         int drawY = (y*64) - camY;
 
-        if (drawX >= -256 && drawY >= -384 && drawX <= width + 64 && drawY <= height + 64) {
+        if (drawX >= -320 && drawY >= -384 && drawX <= width + 320 && drawY <= height + 384) {
           if (x >= 0 && y >= 0 && x < worldWidth && y < worldHeight) {
             image(tileSprites[tiles[x][y]], drawX, drawY);
           } else if (abs(y%6) == 0 && abs(x%4) == 0) {
@@ -116,9 +116,11 @@ void draw() {
 
     player.display(camX, camY);
 
-    fill(0);
-    // this is the collosion hitbox
-    //rect(player.x-camX, player.y-camY + 64, 68, 64);
+    enemy.display(camX, camY);
+    
+    if (dist(player.x,player.y,enemy.x,enemy.y) < 50) {
+      battle = true;
+    }
 
     storm.update(-camXChange, -camYChange);
     if (level == 0) {
@@ -126,8 +128,10 @@ void draw() {
     }
 
     hud();
-  } else {
+  } else if (!battle) {
     startScreen();
+  } else {
+    
   }
 }
 

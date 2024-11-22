@@ -6,18 +6,18 @@ class Enemy {
   int health, damage, speed, x, y;
 
   // Constructor
-  Enemy () {
-    x = 500;
-    y = 500;
+  Enemy (int x, int y) {
+    this.x = x;
+    this.y = y;
     health = 0;
     damage = 0;
     speed = 0;
-    sprite = loadImage("enemy1.png");
+    sprite = loadImage("edgarsSlimeGuy.png");
   }
 
   // Member Methods
-  void display() {
-    image(sprite, x, y);
+  void display(int camX, int camY) {
+    image(sprite, x - camX, y - camY);
   }
 
   void move() {
