@@ -13,7 +13,7 @@ Enemy enemy;
 
 boolean[] moveKeys = new boolean[4];
 
-int camX, camY, camXChange, camYChange, tileSize, worldHeight, worldWidth;
+int camX, camY, camXChange, camYChange, tileSize, worldHeight, worldWidth, transition;
 int[][] tiles = new int[50][50];
 ArrayList<PVector> entrances = new ArrayList<PVector>();
 
@@ -31,7 +31,8 @@ PImage startScreen;
 
 
 
-PImage[] tileSprites = new PImage[8];
+PImage[] tileSprites = new PImage[7];
+PImage[] backgroundSprites = new PImage[4];
 
 void setup() {
   fullScreen();
@@ -39,6 +40,7 @@ void setup() {
   background(0);
   textFont(createFont("pixel.ttf", 32));
   textAlign(LEFT, TOP);
+  frameRate(60);
   level = 0;
   boss = new Boss();
   player = new Player("Joe");
@@ -52,6 +54,7 @@ void setup() {
   tileSize = 64;
   worldHeight = 50;
   worldWidth = 50;
+  transition = 30;
   music = new SoundFile(this, "background.wav");
   tileSprites[5] = loadImage("dirtTileColeNeves.png");
   tileSprites[6] = loadImage("dirtTileColeNeves(G).png");
@@ -60,7 +63,10 @@ void setup() {
   tileSprites[2] = loadImage("dirtTileEmilGruenwald(H).png");
   tileSprites[3] = loadImage("dirtTileColeNeves(Rs).png");
   tileSprites[4] = loadImage("rocktile2ElliottMaw.png");
-  tileSprites[7] = loadImage("TreeTileColeNeves.png");
+  backgroundSprites[0] = loadImage("TreeTileColeNeves.png");
+  backgroundSprites[1] = loadImage("TreeTileColeNeves(1).png");
+  backgroundSprites[2] = loadImage("TreeTileColeNeves(2).png");
+  backgroundSprites[3] = loadImage("TreeTileColeNeves(3).png");
 
   setupLevel();
 
@@ -80,11 +86,11 @@ void draw() {
         int drawX = (64*x) - camX;
         int drawY = (y*64) - camY;
 
-        if (drawX >= -320 && drawY >= -384 && drawX <= width + 320 && drawY <= height + 384) {
+        if (drawX >= -256 && drawY >= -512 && drawX <= width + 256 && drawY <= height + 512) {
           if (x >= 0 && y >= 0 && x < worldWidth && y < worldHeight) {
             image(tileSprites[tiles[x][y]], drawX, drawY);
           } else if (abs(y%6) == 0 && abs(x%4) == 0) {
-            image(tileSprites[7], drawX, drawY-64);
+            image(backgroundSprites[abs((x+y)%4)], drawX, drawY-64);
           }
         }
       }
@@ -131,7 +137,11 @@ void draw() {
   } else if (!battle) {
     startScreen();
   } else {
-    
+    if (transition > 0) {
+      transition --;
+      fill(0);
+      rect(0, height - (30-transition)*(height/30), width, height);
+    }
   }
 }
 
