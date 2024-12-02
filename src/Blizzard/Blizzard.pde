@@ -62,7 +62,7 @@ void setup() {
   tileSprites[1] = loadImage("dirtTileEmilGruenwald(M).png");
   tileSprites[2] = loadImage("dirtTileEmilGruenwald(H).png");
   tileSprites[3] = loadImage("dirtTileColeNeves(Rs).png");
-  tileSprites[4] = loadImage("rocktile2ElliottMaw.png");
+  tileSprites[4] = loadImage("smallTreeEmilGruenwald.png");
   backgroundSprites[0] = loadImage("TreeTileColeNeves.png");
   backgroundSprites[1] = loadImage("TreeTileColeNeves(1).png");
   backgroundSprites[2] = loadImage("TreeTileColeNeves(2).png");
@@ -89,9 +89,9 @@ void draw() {
         if (drawX >= -256 && drawY >= -512 && drawX <= width + 256 && drawY <= height + 512) {
           if (x >= 0 && y >= 0 && x < worldWidth && y < worldHeight) {
             image(tileSprites[tiles[x][y]], drawX, drawY);
-          } else if (abs(y%6) == 0 && abs(x%4) == 0) {
-            image(backgroundSprites[abs((x+y)%4)], drawX, drawY-64);
-          }
+          } //else if (abs(y%6) == 0 && abs(x%4) == 0) {
+          //  image(backgroundSprites[abs((x+y)%4)], drawX, drawY-64);
+          //}
         }
       }
     }
@@ -137,7 +137,11 @@ void draw() {
   } else if (!battle) {
     startScreen();
   } else {
-    if (transition > 0) {
+    
+    
+    
+    if (transition > -30) {
+      background(150);
       transition --;
       fill(0);
       rect(0, height - (30-transition)*(height/30), width, height);
@@ -153,22 +157,51 @@ void setupLevel () {
     for (int x = 0; x < worldWidth; x ++) {
       for (int y = 0; y < worldHeight; y ++) {
         tiles[x][y] = floor(random(3));
-        if (x == 20 && y == 20) {
-          tiles[x][y] = 3;
-        }
+        //if (x == 20 && y == 20) {
+        //  tiles[x][y] = 3;
+        //}
       }
     }
+    //tiles[20][20] = 4;
+    //tiles[10][10] = 4;
+    //tiles[10][20] = 4;
+    //tiles[10][15] = 4;
+    //tiles[20][10] = 4;
+    //tiles[20][15] = 4;
+    //tiles[15][20] = 4;
+    //tiles[13][17] = 4;
+    //tiles[20][11] = 4;
+    tiles[20][20] = 3;
+    tiles[10][10] = 3;
+    tiles[10][20] = 3;
+    tiles[10][15] = 3;
+    tiles[20][10] = 3;
+    tiles[20][15] = 3;
+    tiles[15][20] = 3;
+    tiles[13][17] = 3;
+    tiles[20][11] = 3;
 
     entrances.add(new PVector(0, 0, 1));
   } else if (level == 1) {
     for (int x = 0; x < worldWidth; x ++) {
       for (int y = 0; y < worldHeight; y ++) {
         tiles[x][y] = floor(random(2)+5);
-        if (x == 20 && y == 20) {
-          tiles[x][y] = 3;
-        }
+        //if (x == 20 && y == 20) {
+        //  tiles[x][y] = 3;
+        //}
       }
     }
+    
+    tiles[20][20] = 3;
+    tiles[10][10] = 3;
+    tiles[10][20] = 3;
+    tiles[10][15] = 3;
+    tiles[20][10] = 3;
+    tiles[20][15] = 3;
+    tiles[15][20] = 3;
+    tiles[13][17] = 3;
+    tiles[20][11] = 3;
+    
     entrances.add(new PVector(0, 0, 0));
   } else if (level == 2) {
   } else if (level == 3) {
