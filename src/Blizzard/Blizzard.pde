@@ -140,7 +140,11 @@ void draw() {
     
     
     
-    if (transition > -30) {
+    if (transition > 0) {
+      transition --;
+      fill(0);
+      rect(0, height - (30-transition)*(height/30), width, height);
+    } else if (transition > -30) {      
       background(150);
       transition --;
       fill(0);
@@ -162,22 +166,13 @@ void setupLevel () {
         //}
       }
     }
-    //tiles[20][20] = 4;
-    //tiles[10][10] = 4;
-    //tiles[10][20] = 4;
-    //tiles[10][15] = 4;
-    //tiles[20][10] = 4;
-    //tiles[20][15] = 4;
-    //tiles[15][20] = 4;
-    //tiles[13][17] = 4;
-    //tiles[20][11] = 4;
     tiles[20][20] = 3;
     tiles[10][10] = 3;
     tiles[10][20] = 3;
     tiles[10][15] = 3;
     tiles[20][10] = 3;
     tiles[20][15] = 3;
-    tiles[15][20] = 3;
+    tiles[15][20] = 4;
     tiles[13][17] = 3;
     tiles[20][11] = 3;
 
