@@ -13,9 +13,10 @@ Enemy enemy;
 
 boolean[] moveKeys = new boolean[4];
 
-int camX, camY, camXChange, camYChange, tileSize, worldHeight, worldWidth, transition;
+int camX, camY, camXChange, camYChange, tileSize, worldHeight, worldWidth, transition, welcomeCount;
 int[][] tiles = new int[50][50];
 ArrayList<PVector> entrances = new ArrayList<PVector>();
+Timer wTime;
 
 int level;
 boolean play, battle;
@@ -28,8 +29,6 @@ int[][] corners = {
 };
 
 PImage startScreen;
-
-
 
 PImage[] tileSprites = new PImage[7];
 PImage[] backgroundSprites = new PImage[4];
@@ -69,6 +68,9 @@ void setup() {
   backgroundSprites[3] = loadImage("TreeTileColeNeves(3).png");
 
   setupLevel();
+  
+  welcomeCount = 0;
+  wTime = new Timer(5000);
 
   startScreen = loadImage("StartScreenColeN.png");
   startScreen.resize(width, height);
@@ -219,12 +221,14 @@ void hud () {
 }
 
 void startScreen() {
-  image(startScreen, 0, 0);
-  //background(0);
-  //fill(255);
-  //textAlign(CENTER);
-  //textSize(50);
-  //text("Press Space", width/2, height/2);
+  background(150);
+  
+  if (wTime.isFinished()) {
+    wTime.start();
+    welcomeCount ++;
+  }
+  
+  //image(startScreen, 0, 0);
 }
 
 void setMovement(int k, boolean b) {
@@ -298,6 +302,8 @@ void checkAndResolveCollision(int[][] tiles, Player player, int moveX, int moveY
 
 void mousePressed() {
   if (!play && mouseX > width * 0.31153846153 && mouseX < width - width * 0.31153846153 && mouseY > height * 0.47222222222 && mouseY < height - height * 0.3) {
+    if (welcomeCount <= 13) {
     play = true;
+  }
   }
 }
