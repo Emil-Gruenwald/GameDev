@@ -36,7 +36,7 @@ PImage[] backgroundSprites = new PImage[4];
 void setup() {
   fullScreen();
   noStroke();
-  background(0);
+  //background(0);
   textFont(createFont("pixel.ttf", 32));
   textAlign(LEFT, TOP);
   frameRate(60);
@@ -68,9 +68,10 @@ void setup() {
   backgroundSprites[3] = loadImage("TreeTileColeNeves(3).png");
 
   setupLevel();
-  
+
   welcomeCount = 0;
-  wTime = new Timer(5000);
+  wTime = new Timer(3000);
+  wTime.start();
 
   startScreen = loadImage("StartScreenColeN.png");
   startScreen.resize(width, height);
@@ -125,8 +126,8 @@ void draw() {
     player.display(camX, camY);
 
     enemy.display(camX, camY);
-    
-    if (dist(player.x,player.y,enemy.x,enemy.y) < 50) {
+
+    if (dist(player.x, player.y, enemy.x, enemy.y) < 50) {
       battle = true;
     }
 
@@ -137,16 +138,17 @@ void draw() {
 
     hud();
   } else if (!battle) {
+    //wTime.start();
     startScreen();
   } else {
-    
-    
-    
+
+
+
     if (transition > 0) {
       transition --;
       fill(0);
       rect(0, height - (30-transition)*(height/30), width, height);
-    } else if (transition > -30) {      
+    } else if (transition > -30) {
       background(150);
       transition --;
       fill(0);
@@ -188,7 +190,7 @@ void setupLevel () {
         //}
       }
     }
-    
+
     tiles[20][20] = 3;
     tiles[10][10] = 3;
     tiles[10][20] = 3;
@@ -198,7 +200,7 @@ void setupLevel () {
     tiles[15][20] = 3;
     tiles[13][17] = 3;
     tiles[20][11] = 3;
-    
+
     entrances.add(new PVector(0, 0, 0));
   } else if (level == 2) {
   } else if (level == 3) {
@@ -222,13 +224,76 @@ void hud () {
 
 void startScreen() {
   background(150);
-  
+
   if (wTime.isFinished()) {
     wTime.start();
     welcomeCount ++;
   }
-  
-  //image(startScreen, 0, 0);
+
+  switch(welcomeCount) {
+  case 0:
+    background(0);
+    fill(255);
+    text("Its getting cold outside", 200, 200);
+    break;
+  case 1:
+    background(0);
+    fill(255);
+    text("Whats that noise?", 200, 200);
+    break;
+  case 2:
+    background(0);
+    fill(255);
+    text("What is that?", 200, 200);
+    break;
+  case 3:
+    background(0);
+    fill(255);
+    text("Ahhhhhhh!", 200, 200);
+    break;
+  case 4:
+    background(0);
+    fill(255);
+    text("Its getting cold outside", 200, 200);
+    break;
+  case 5:
+    background(0);
+    fill(255);
+    text("Whats that noise?", 200, 200);
+    break;
+  case 6:
+    background(0);
+    fill(255);
+    text("What is that?", 200, 200);
+    break;
+  case 7:
+    background(0);
+    fill(255);
+    text("Ahhhhhhh!", 200, 200);
+    break;
+  case 8:
+    background(0);
+    fill(255);
+    text("Whats that noise?", 200, 200);
+    break;
+  case 9:
+    background(0);
+    fill(255);
+    text("What is that?", 200, 200);
+    break;
+  case 10:
+    background(0);
+    fill(255);
+    text("Ahhhhhhh!", 200, 200);
+    break;
+  case 11:
+    background(0);
+    fill(255);
+    text("Its getting cold outside", 200, 200);
+    break;
+  default:
+    image(startScreen, 0, 0);
+  }
 }
 
 void setMovement(int k, boolean b) {
@@ -302,8 +367,8 @@ void checkAndResolveCollision(int[][] tiles, Player player, int moveX, int moveY
 
 void mousePressed() {
   if (!play && mouseX > width * 0.31153846153 && mouseX < width - width * 0.31153846153 && mouseY > height * 0.47222222222 && mouseY < height - height * 0.3) {
-    if (welcomeCount <= 13) {
-    play = true;
-  }
+    if (welcomeCount >= 12) {
+      play = true;
+    }
   }
 }
