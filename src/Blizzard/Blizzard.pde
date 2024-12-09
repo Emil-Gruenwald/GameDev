@@ -327,9 +327,9 @@ void setMovement(int k, boolean b) {
 
 void keyPressed() {
   setMovement(key, true);
-  //if (key == ' ') {
-  //  play = true;
-  //}
+  if (key == ' ') {
+    welcomeCount = 12;
+  }
 }
 
 void keyReleased() {
@@ -356,8 +356,8 @@ void checkAndResolveCollision(int[][] tiles, Player player, int moveX, int moveY
         level = floor(entrances.get(i).z);
         setupLevel();
 
-        player.x += player.sx * - 21;
-        player.y += player.sy * - 21;
+        player.x += player.sx * - tileSize/3;
+        player.y += player.sy * - tileSize/3;
 
         return;
       }
