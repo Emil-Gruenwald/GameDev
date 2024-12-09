@@ -53,7 +53,7 @@ void setup() {
   tileSize = 64;
   worldHeight = 50;
   worldWidth = 50;
-  transition = 60;
+  transition = 120;
   music = new SoundFile(this, "background.wav");
   tileSprites[5] = loadImage("dirtTileColeNeves.png");
   tileSprites[6] = loadImage("dirtTileColeNeves(G).png");
