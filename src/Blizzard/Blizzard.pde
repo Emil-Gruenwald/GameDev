@@ -53,7 +53,7 @@ void setup() {
   tileSize = 64;
   worldHeight = 50;
   worldWidth = 50;
-  transition = 30;
+  transition = 60;
   music = new SoundFile(this, "background.wav");
   tileSprites[5] = loadImage("dirtTileColeNeves.png");
   tileSprites[6] = loadImage("dirtTileColeNeves(G).png");
@@ -135,6 +135,8 @@ void draw() {
     if (level == 0) {
       storm.display();
     }
+
+    transition = 30;
 
     hud();
   } else if (!battle) {
@@ -225,74 +227,84 @@ void hud () {
 void startScreen() {
   background(150);
 
-  if (wTime.isFinished()) {
-    wTime.start();
-    welcomeCount ++;
-  }
+  fill(255);
 
   switch(welcomeCount) {
   case 0:
-    background(0);
-    fill(255);
+    //background(0);
+    //fill(255);
     text("Its getting cold outside", 200, 200);
     break;
   case 1:
-    background(0);
-    fill(255);
+    //background(0);
+    //fill(255);
     text("Whats that noise?", 200, 200);
     break;
   case 2:
-    background(0);
-    fill(255);
+    //background(0);
+    //fill(255);
     text("What is that?", 200, 200);
     break;
   case 3:
-    background(0);
-    fill(255);
+    //background(0);
+    //fill(255);
     text("Ahhhhhhh!", 200, 200);
     break;
   case 4:
-    background(0);
-    fill(255);
+    //background(0);
+    //fill(255);
     text("Its getting cold outside", 200, 200);
     break;
   case 5:
-    background(0);
-    fill(255);
+    //background(0);
+    //fill(255);
     text("Whats that noise?", 200, 200);
     break;
   case 6:
-    background(0);
-    fill(255);
+    //background(0);
+    //fill(255);
     text("What is that?", 200, 200);
     break;
   case 7:
-    background(0);
-    fill(255);
+    //background(0);
+    //fill(255);
     text("Ahhhhhhh!", 200, 200);
     break;
   case 8:
-    background(0);
-    fill(255);
+    //background(0);
+    //fill(255);
     text("Whats that noise?", 200, 200);
     break;
   case 9:
-    background(0);
-    fill(255);
+    //background(0);
+    //fill(255);
     text("What is that?", 200, 200);
     break;
   case 10:
-    background(0);
-    fill(255);
+    //background(0);
+    //fill(255);
     text("Ahhhhhhh!", 200, 200);
     break;
   case 11:
-    background(0);
-    fill(255);
+    //background(0);
+    //fill(255);
     text("Its getting cold outside", 200, 200);
     break;
   default:
     image(startScreen, 0, 0);
+  }
+
+  if (wTime.isFinished()) {
+    if (transition > 0) {
+      transition --;
+      fill(0, 300/60*transition);
+      rect(0, 0, width, height);
+    } else if (transition == 30) {
+      welcomeCount ++;
+    } else if (transition == 0) {
+      wTime.start();
+      transition = 60;
+    }
   }
 }
 
