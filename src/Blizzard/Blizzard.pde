@@ -13,7 +13,8 @@ Enemy enemy;
 
 boolean[] moveKeys = new boolean[4];
 
-int camX, camY, camXChange, camYChange, tileSize, worldHeight, worldWidth, transition, welcomeCount;
+int camX, camY, camXChange, camYChange, tileSize, worldHeight, worldWidth, transition, welcomeCount; 
+float temp;
 int[][] tiles = new int[50][50];
 ArrayList<PVector> entrances = new ArrayList<PVector>();
 Timer wTime;
@@ -297,13 +298,16 @@ void startScreen() {
   if (wTime.isFinished()) {
     if (transition > 0) {
       transition --;
-      fill(0, 300/60*transition);
+      temp = (-1.0/12.0)*((transition-60.0)*(transition-60.0))+300.0;
+      fill(0, temp);
       rect(0, 0, width, height);
-    } else if (transition == 30) {
+    }
+    if (transition == 60) { //<>//
       welcomeCount ++;
-    } else if (transition == 0) {
+    }
+    if (transition == 0) {
       wTime.start();
-      transition = 60;
+      transition = 120;
     }
   }
 }
